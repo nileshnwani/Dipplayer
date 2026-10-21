@@ -143,14 +143,14 @@ svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.8;stroke
   const $ = id => document.getElementById(id);
   const audio = $('audio');
   
-  /* Relative paths meant for hosting alongside the files on GitHub Pages */
+  /* UPDATED: Fully local relative paths for both images and audio */
   const tracks = [
     {
       title: "Happy Birthday My Love",
       subtitle: "To the most special person in my life",
       person: "Dipali ❤️",
       audio: "song1.mp3",
-      image: "https://drive.google.com/thumbnail?id=1k0C18x7nJMN5QaTN0InU3xkDSTaR4c9u&sz=w800",
+      image: "img1.jpg",
       favorite: true
     },
     {
@@ -158,7 +158,7 @@ svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.8;stroke
       subtitle: "A little birthday song for my favorite person",
       person: "My Dipali 💕",
       audio: "song2.mp3",
-      image: "https://drive.google.com/thumbnail?id=1JME_okEZhZerE7UQVc602BM9XPnAQpSr&sz=w800",
+      image: "img2.jpg",
       favorite: false
     },
     {
@@ -166,7 +166,7 @@ svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.8;stroke
       subtitle: "Grateful to have you in my life",
       person: "Dipali ✨",
       audio: "song3.mp3",
-      image: "https://drive.google.com/thumbnail?id=1KxS5pM9zS_53gE_M1MREerHlvYPolhhE&sz=w800",
+      image: "img3.jpg",
       favorite: false
     },
     {
@@ -174,7 +174,7 @@ svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.8;stroke
       subtitle: "With all my love ❤️",
       person: "Birthday Girl Dipali 🎂",
       audio: "song4.mp3",
-      image: "https://drive.google.com/thumbnail?id=1c096a_ZrX5MdMU2_FfGFse_Z7OB6QqhH&sz=w800",
+      image: "img4.jpg",
       favorite: false
     },
     {
@@ -182,7 +182,7 @@ svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.8;stroke
       subtitle: "Because you deserve the best birthday ever",
       person: "My Love Dipali 🫶",
       audio: "song5.mp3",
-      image: "https://drive.google.com/thumbnail?id=1wS4CWMnxnkFXS4CNcQKjWa-E-ABQdSxE&sz=w800",
+      image: "img5.jpg",
       favorite: false
     }
   ];
@@ -336,7 +336,7 @@ svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.8;stroke
   audio.addEventListener('timeupdate', updateProgress);
   audio.addEventListener('loadedmetadata', updateProgress);
   audio.addEventListener('play', () => { isPlaying=true; updatePlayButton(); render(); });
-  audio.addEventListener('pause', () => { isPlaying=false; update play buttons(); render(); });
+  audio.addEventListener('pause', () => { isPlaying=false; updatePlayButton(); render(); });
   audio.addEventListener('ended', () => { if (repeat) { audio.currentTime=0; playAudio(); } else nextTrack(); });
   
   audio.addEventListener('error', () => { 
